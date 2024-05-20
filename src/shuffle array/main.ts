@@ -1,13 +1,9 @@
 
-const arrayCartas= [
-    { idFoto: 1, imagen: "ffsdfs"},
-    { idFoto: 2, imagen: "dsds" },
-    { idFoto: 3, imagen: "dsds" },
-    { idFoto: 4, imagen: "sdsd" },
-    { idFoto: 5, imagen: "dsds" },
-]
 
-const shuffleArray=<T>(arrayCartas: T[]):T[]=>{
+
+
+
+const shuffleArray = <T>(arrayCartas: T[]): T[] => {
     // Crea una copia del array original para no modificarlo directamente
     const shuffledArray = arrayCartas.slice();
 

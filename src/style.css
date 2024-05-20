@@ -9,14 +9,28 @@
 body {
   min-height: 100dvh;
 }
+main{
+  padding: 150px 150px;
+}
 
 .image-container {
-  width: 200px;
-  height: 200px;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
   border-radius: 45px;
   -webkit-border-radius: 45px;
   -moz-border-radius: 45px;
   -ms-border-radius: 45px;
   -o-border-radius: 45px;
-  background-color: blueviolet;
+  background-color: rgb(101, 202, 245);
+}
+.image-show{
+  width: 150px;
+  height: 150px;
+  border-radius: 45px;
+  -webkit-border-radius: 45px;
+  -moz-border-radius: 45px;
+  -ms-border-radius: 45px;
+  -o-border-radius: 45px;
+  background-color: rgb(101, 202, 245);
 }
