@@ -21,7 +21,7 @@ body {
 
 }
 
-.image-container {
+#imageContainer {
   margin: 0 auto;
   cursor: pointer;
   width: 150px;
