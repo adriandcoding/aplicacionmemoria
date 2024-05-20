@@ -1,8 +1,3 @@
-
-
-
-
-
 const shuffleArray = <T>(arrayCartas: T[]): T[] => {
     // Crea una copia del array original para no modificarlo directamente
     const shuffledArray = arrayCartas.slice();

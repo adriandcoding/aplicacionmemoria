@@ -5,7 +5,7 @@ export function changeImage(): void {
     const img = document.createElement('img');
     
     // Establece la URL de la imagen
-    img.src ="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/6.png" // Reemplaza esta URL con la URL de tu imagen
+    img.src ="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/6.png" 
     
     // Establece atributos opcionales como el ancho, el alto y el texto alternativo
     img.width = 150;

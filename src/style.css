@@ -2,36 +2,34 @@
   background-color: rgb(187, 234, 234);
   box-sizing: border-box;
   position: relative;
-  min-width: 0;
-  margin:0
+
 
 }
 
 body {
   min-height: 100dvh;
 }
-main{
+
+main {
   padding: 150px 150px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+
 }
 
 .image-container {
   cursor: pointer;
   width: 150px;
   height: 150px;
-  border-radius: 45px;
-  -webkit-border-radius: 45px;
-  -moz-border-radius: 45px;
-  -ms-border-radius: 45px;
-  -o-border-radius: 45px;
-  background-color: rgb(101, 202, 245);
-}
-.image-show{
-  width: 150px;
-  height: 150px;
-  border-radius: 45px;
-  -webkit-border-radius: 45px;
-  -moz-border-radius: 45px;
-  -ms-border-radius: 45px;
-  -o-border-radius: 45px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
   background-color: rgb(101, 202, 245);
 }
