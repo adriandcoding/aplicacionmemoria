@@ -6,9 +6,7 @@
   margin:0
 
 }
-.hidden {
-  display: none;
-}
+
 body {
   min-height: 100dvh;
 }
