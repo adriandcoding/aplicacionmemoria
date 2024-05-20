@@ -1,5 +1,5 @@
 export function changeImage(): void {
-    const imgContainer=document.querySelector(".image-container")
+    const imgContainer=document.querySelector(".image-container1")
     if (imgContainer) {
        // Crea un elemento de imagen
     const img = document.createElement('img');
@@ -18,6 +18,7 @@ export function changeImage(): void {
     // Añade la imagen al contenedor
     imgContainer.appendChild(img);
     }
+    
    
 }
 export function changeImage2(): void {

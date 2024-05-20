@@ -1,7 +1,7 @@
 import { changeImage,changeImage2 } from "./show card and rotate/main";
 
 // Añade un evento de clic al botón
-const showCard = document.querySelector(".image-container");
+const showCard = document.querySelector(".image-container1");
 if (showCard) {
     showCard.addEventListener('click', changeImage);
 }
