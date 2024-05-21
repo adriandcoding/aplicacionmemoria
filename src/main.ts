@@ -17,12 +17,4 @@ if (assignImagesButton && assignImagesButton instanceof HTMLButtonElement) {
   assignImagesButton.addEventListener('click', assignImages);
 }
 
-// Añadir un evento de clic al botón para barajar el array
-const shuffledArray = document.getElementById('button');
-if (shuffledArray && shuffledArray instanceof HTMLButtonElement) {
-  shuffledArray.addEventListener('click', () => {
-    
-    
-    
-  });
-}
+
