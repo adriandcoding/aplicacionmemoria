@@ -1,10 +1,10 @@
-import { Carta, Tablero } from "./model"
+import { Carta, Tablero, } from "./model"
 
 /*
 En el motor nos va a hacer falta un método para barajar cartas
 */
 const barajarCartas = (cartas : Carta[]): Carta[] => {
-    //...
+   
   }
   
   /*
@@ -42,7 +42,7 @@ const barajarCartas = (cartas : Carta[]): Carta[] => {
   /*
     Esto lo podemos comprobar o bien utilizando every, o bien utilizando un contador (cartasEncontradas)
   */
-  export const esPartidaCompleta(tablero: Tablero) : boolean => {
+  export const esPartidaCompleta=(tablero: Tablero) : boolean => {
     //...
   }
   
