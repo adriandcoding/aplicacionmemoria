@@ -1,6 +1,12 @@
-const shuffleArray = <T>(arrayCartas: T[]): T[] => {
+interface InfoCarta {
+    idFoto: number;
+    imagen: string;
+}
+  
+
+const shuffleArray = (Array:InfoCarta[]): InfoCarta[] => {
     // Crea una copia del array original para no modificarlo directamente
-    const shuffledArray = arrayCartas.slice();
+    const shuffledArray = Array.slice();
 
     // Recorre el array desde el último elemento hasta el segundo
     for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -14,6 +20,4 @@ const shuffleArray = <T>(arrayCartas: T[]): T[] => {
     return shuffledArray;
 }
 
-// Ejemplo de uso
-const numbers = [1, 2, 3, 4, 5];
-const shuffledNumbers = shuffleArray(numbers);
+
