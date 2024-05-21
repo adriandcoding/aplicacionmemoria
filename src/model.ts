@@ -32,12 +32,16 @@ const crearColeccionDeCartasInicial = (infoCartas: InfoCarta[]): Carta[] => {
     /* Aquí crearemos un array de cartas a partir de un array de infoCartas
        y duplicaremos las cartas para que haya dos de cada tipo.
     */
-    [
-    
-    /* Aquí ponemos seis cartas siguiendo la interfaz de InfoCarta */
-];
+    const cartas: Carta[] = [];
+    infoCartas.forEach((infoCarta) => {
+        cartas.push(crearCartaInicial(infoCarta.idFoto, infoCarta.imagen));
+        cartas.push(crearCartaInicial(infoCarta.idFoto, infoCarta.imagen));
+    });
+    return cartas;
+
     
 };
+console.log(crearColeccionDeCartasInicial(infoCartas))
 
 export let cartas: Carta[] = crearColeccionDeCartasInicial(infoCartas);
 
