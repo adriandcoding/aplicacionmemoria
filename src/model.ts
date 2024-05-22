@@ -18,7 +18,7 @@ const infoCartas: InfoCarta[] = [
     { idFoto: 3, imagen: "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/4.png" },
     { idFoto: 4, imagen: "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/5.png" },
     { idFoto: 5, imagen: "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/6.png" },
-    
+
 ];
 
 const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({

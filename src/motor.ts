@@ -9,27 +9,47 @@ const barajarCartas = (cartas: Carta[]): Carta[] => {
     return Math.random() - 0.5;
    })
    return barajado;
-
-   
 }
-  console.log(barajarCartas(cartas));
+
   
   /*
     Una carta se puede voltear si no está encontrada y no está ya volteada, o no hay dos cartas ya volteadas
   */
-  const sePuedeVoltearLaCarta = (tablero: Tablero, indice: number ): boolean => {
-    //..
+const sePuedeVoltearLaCarta = (tablero: Tablero, indice: number): boolean => {
+  // Check if the card is not already flipped
+  if (!cartas[indice].estaVuelta) {
+    // Count the number of flipped cards on the board
+    let numVolteadas = cartas.filter((carta) => carta.estaVuelta).length;
+
+    // Check if there are not already two flipped cards
+    if (numVolteadas < 2) {
+      return true;
+    }
+  }
+
+  return false;
   }
   
   const voltearLaCarta = (tablero: Tablero, indice: number) : void => {
-    //...
+    const voltearLaCarta = (tablero: Tablero, indice: number): void => {
+      // Check if the card is not already flipped
+      if (!cartas[indice].estaVuelta) {
+        // Flip the card by setting the volteada property to true
+        cartas[indice].estaVuelta = true;
+      }
+    }
   }
   
   /*
     Dos cartas son pareja si en el array de tablero de cada una tienen el mismo id
   */
   export const sonPareja = (indiceA: number, indiceB: number, tablero: Tablero): boolean => {
-    //...
+  // Get the ids of the cards at the specified indices
+  const idA = cartas[indiceA].idFoto;
+  const idB = cartas[indiceB].idFoto;
+
+  // Check if the ids are the same
+  return idA === idB;
   }
   
   /*
