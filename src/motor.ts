@@ -95,7 +95,8 @@ export const iniciaPartida = (tablero: Tablero): void => {
     carta.estaVuelta = false;
     carta.encontrada = false;
   });
-barajarCartas(cartas)
+  barajarCartas(cartas)
+
 
   // Any other necessary setup for starting a new game
 };
