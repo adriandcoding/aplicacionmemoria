@@ -12,7 +12,7 @@ import {
   changeImage12,
 
 } from "./show card and rotate/main";
-import { assignImages, } from "./DIVmap/main";
+import { vaciarTablero, } from "./DIVmap/main";
 
 
 // Añade un evento de clic al botón
@@ -67,7 +67,7 @@ if (showCard12 && showCard12 instanceof HTMLDivElement) {
 // Añadir un evento de clic al botón para asignar las imágenes
 const assignImagesButton = document.getElementById('button');
 if (assignImagesButton && assignImagesButton instanceof HTMLButtonElement) {
-  assignImagesButton.addEventListener('click', assignImages);
+  assignImagesButton.addEventListener('click',vaciarTablero);
 }
 
 
