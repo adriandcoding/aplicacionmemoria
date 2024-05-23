@@ -1,10 +1,13 @@
 
 
 import { arrayShuffle } from "./shuffle array/main";
-const imageContainers = document.querySelectorAll("[data-indice-id]");
-imageContainers.forEach((container, index) => {
-  container.addEventListener('click', () => changeImage(index));
-});
+export const pintarImagen = () => {
+  const imageContainers = document.querySelectorAll("[data-indice-id]");
+  imageContainers.forEach((container, index) => {
+    container.addEventListener('click', () => changeImage(index));
+  });
+}
+
 function changeImage(index: number) {
   const imgContainer = document.querySelector(`[data-indice-id="${index}"]`);
   if (imgContainer) {
