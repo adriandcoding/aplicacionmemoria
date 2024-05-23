@@ -1,6 +1,30 @@
 
 import { tablero } from "./model";
-import { esVolteableLaCarta, iniciaPartida, voltearLaCarta } from "./motor";
+import { esVolteableLaCarta, iniciaPartida, voltearLaCarta,} from "./motor";
+
+const handlerDivCar = (indexCard: number) => {
+    const dataIndiceId = `[data-indice-id="${indexCard}"]`
+    const imgElement = document.querySelector(`img${dataIndiceId}`);
+    if (imgElement && imgElement instanceof HTMLImageElement) {
+        if (esVolteableLaCarta(tablero, indexCard)) {
+            voltearLaCarta(tablero, indexCard);
+            darleLaVueltaALaCarta(indexCard);
+           } else {
+            console.log("no se  puede voltear la carta")
+        }
+    }
+}
+
+
+const changeImage = (index: number) =>{
+    const dataIndiceId = `[data-indice-id="${index}"]`
+    const imgContainer = document.querySelector(`div${dataIndiceId}`);
+    if (imgContainer && imgContainer instanceof HTMLDivElement) {
+        imgContainer.addEventListener("click", () => {
+            handlerDivCar(index)
+        })
+    }
+}
 export const crearTablero = () => {
 
     tablero.cartas.forEach((carta, index) => {
@@ -17,30 +41,8 @@ const darleLaVueltaALaCarta = (index: number) => {
         imgElement.src = urlImagen;
     }
 }
-const handlerDivCar = (indexCard: number) => {
-    const dataIndiceId = `[data-indice-id="${indexCard}"]`
-    const imgElement = document.querySelector(`img${dataIndiceId}`);
-    if (imgElement && imgElement instanceof HTMLImageElement) {
-        if (esVolteableLaCarta(tablero, indexCard)) {
-            voltearLaCarta(tablero, indexCard);
-            darleLaVueltaALaCarta(indexCard);
-            
-        } else {
-            console.log("no se  puede voltear la carta")
-        }
-    }
-    
-}
 
-function changeImage(index: number) {
-    const dataIndiceId = `[data-indice-id="${index}"]`
-    const imgContainer = document.querySelector(`div${dataIndiceId}`);
-    if (imgContainer && imgContainer instanceof HTMLDivElement) {
-        imgContainer.addEventListener("click", () => {
-            handlerDivCar(index)
-        })
-    }
-}
+
 export const handlerClickButton = () => {
     const startButton = document.getElementById("button");
     if (startButton && startButton instanceof HTMLButtonElement) {
@@ -51,5 +53,6 @@ export const handlerClickButton = () => {
 };
 const clickStartButton = () => {
     iniciaPartida(tablero);
-};
+
+}
 
