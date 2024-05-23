@@ -1,4 +1,4 @@
-import { Carta, Tablero, cartas, } from "./model"
+import { Carta, Tablero, cartas,crearTableroInicial} from "./model"
 
 /*
 En el motor nos va a hacer falta un método para barajar cartas
@@ -86,12 +86,14 @@ Iniciar partida
 */
 
 export const iniciaPartida = (tablero: Tablero): void => {
+  crearTableroInicial()
   cartas.forEach((carta) => {
     carta.estaVuelta = false;
     carta.encontrada = false;
   });
   barajarCartas(cartas)
-
+  tablero.estadoPartida = "CeroCartasLevantadas";
 
 
 };
+
