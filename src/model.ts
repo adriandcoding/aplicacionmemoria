@@ -30,14 +30,9 @@ const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({
 
 
 const crearColeccionDeCartasInicial = (infoCartas: InfoCarta[]): Carta[] => {
-
-    const cartas: Carta[] = [];
-    infoCartas.forEach((infoCarta) => {
-        cartas.push(crearCartaInicial(infoCarta.idFoto, infoCarta.imagen));
-        cartas.push(crearCartaInicial(infoCarta.idFoto, infoCarta.imagen));
-    });
-    return cartas;
-
+    const newArray = infoCartas.map((infoCarta) => crearCartaInicial(infoCarta.idFoto, infoCarta.imagen));
+    return [...newArray,...newArray];
+    
 
 };
 
@@ -62,7 +57,7 @@ export interface Tablero {
     indiceCartaVolteadaB?: number;
 }
 
-const crearTableroInicial = (): Tablero => ({
+export const crearTableroInicial = (): Tablero => ({
     cartas: cartas,
     estadoPartida: "PartidaNoIniciada",
 });
