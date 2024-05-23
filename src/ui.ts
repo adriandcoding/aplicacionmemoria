@@ -1,6 +1,6 @@
 
 import { tablero } from "./model";
-import { esVolteableLaCarta, iniciaPartida, voltearLaCarta,} from "./motor";
+import { esVolteableLaCarta, iniciaPartida, voltearLaCarta, sonPareja, } from "./motor";
 
 const handlerDivCar = (indexCard: number) => {
     const dataIndiceId = `[data-indice-id="${indexCard}"]`
@@ -9,14 +9,15 @@ const handlerDivCar = (indexCard: number) => {
         if (esVolteableLaCarta(tablero, indexCard)) {
             voltearLaCarta(tablero, indexCard);
             darleLaVueltaALaCarta(indexCard);
-           } else {
+        } else {
             console.log("no se  puede voltear la carta")
         }
     }
-}
+};
 
 
-const changeImage = (index: number) =>{
+
+const changeImage = (index: number) => {
     const dataIndiceId = `[data-indice-id="${index}"]`
     const imgContainer = document.querySelector(`div${dataIndiceId}`);
     if (imgContainer && imgContainer instanceof HTMLDivElement) {

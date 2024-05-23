@@ -64,8 +64,7 @@ const parejaEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): v
     tablero.cartas[indiceA].estaVuelta = true;
     tablero.cartas[indiceB].estaVuelta = true;
     tablero.estadoPartida = "DosCartasLevantadas";
-    const juegoCompleto = tablero.cartas.every((carta) => carta.encontrada);
-    if (juegoCompleto) {
+    if (esPartidaCompleta(tablero)) {
       console.log("has ganado")
     }
   }
@@ -81,6 +80,27 @@ const parejaNoEncontrada = (tablero: Tablero, indiceA: number, indiceB: number):
       tablero.cartas[indiceB].estaVuelta = false;
       tablero.estadoPartida = "CeroCartasLevantadas";
     }
+}
+export const manejarSeleccionCartas = (tablero: Tablero, indiceA: number, indiceB: number): void => {
+  // Verificar si los índices son válidos y no son undefined
+  if (indiceA === undefined || indiceB === undefined) return;
+
+  if (sonPareja(indiceA, indiceB, tablero)) {
+    tablero.cartas[indiceA].encontrada = true;
+    tablero.cartas[indiceB].encontrada = true;
+    tablero.cartas[indiceA].estaVuelta = true;
+    tablero.cartas[indiceB].estaVuelta = true;
+    tablero.estadoPartida = "DosCartasLevantadas";
+    if (esPartidaCompleta(tablero)) {
+      console.log("¡Has ganado!");
+    }
+  } else {
+    tablero.cartas[indiceA].encontrada = false;
+    tablero.cartas[indiceB].encontrada = false;
+    tablero.cartas[indiceA].estaVuelta = false;
+    tablero.cartas[indiceB].estaVuelta = false;
+    tablero.estadoPartida = "CeroCartasLevantadas";
+  }
 }
 
 /*
