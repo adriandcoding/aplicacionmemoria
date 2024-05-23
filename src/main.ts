@@ -7,7 +7,7 @@ export const pintarImagen = () => {
     container.addEventListener('click', () => changeImage(index));
   });
 }
-
+pintarImagen()
 function changeImage(index: number) {
   const imgContainer = document.querySelector(`[data-indice-id="${index}"]`);
   if (imgContainer) {
@@ -24,3 +24,4 @@ function changeImage(index: number) {
     }
   }
 }
+
