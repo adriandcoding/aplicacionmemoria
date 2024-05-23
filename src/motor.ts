@@ -81,8 +81,8 @@ const parejaNoEncontrada = (tablero: Tablero, indiceA: number, indiceB: number):
       tablero.estadoPartida = "CeroCartasLevantadas";
     }
 }
+// Verificar si los índices son válidos y no son undefined
 export const manejarSeleccionCartas = (tablero: Tablero, indiceA: number, indiceB: number): void => {
-  // Verificar si los índices son válidos y no son undefined
   if (indiceA !== undefined && indiceB && undefined) {
     parejaEncontrada(tablero, indiceA, indiceB);
     parejaNoEncontrada(tablero, indiceA, indiceB);

@@ -1,7 +1,8 @@
 
 import { tablero } from "./model";
-import { esVolteableLaCarta, iniciaPartida, voltearLaCarta, sonPareja, } from "./motor";
+import { esVolteableLaCarta, iniciaPartida, voltearLaCarta,} from "./motor";
 
+//serie de acciones dependiendo de si la carta es volteable
 const handlerDivCar = (indexCard: number) => {
     const dataIndiceId = `[data-indice-id="${indexCard}"]`
     const imgElement = document.querySelector(`img${dataIndiceId}`);
@@ -14,9 +15,7 @@ const handlerDivCar = (indexCard: number) => {
         }
     }
 };
-
-
-
+//funcion para cuando haces click en los divs empieze a voltear cartas
 const changeImage = (index: number) => {
     const dataIndiceId = `[data-indice-id="${index}"]`
     const imgContainer = document.querySelector(`div${dataIndiceId}`);
@@ -26,12 +25,8 @@ const changeImage = (index: number) => {
         })
     }
 }
-export const crearTablero = () => {
 
-    tablero.cartas.forEach((carta, index) => {
-        changeImage(index)
-    });
-}
+//función para cambiar el valor del div y pasarle un src
 const darleLaVueltaALaCarta = (index: number) => {
     const dataIndiceId = `[data-indice-id="${index}"]`
     const imgElement = document.querySelector(`img${dataIndiceId}`);
@@ -42,8 +37,18 @@ const darleLaVueltaALaCarta = (index: number) => {
         imgElement.src = urlImagen;
     }
 }
+// da funcionalidad en los divs al iniciar partida
+export const crearTablero = () => {
+    tablero.cartas.forEach((carta, index) => {
+        changeImage(index)
+    });
+}
+//inicia partida con el array de cartas ya barajado
+const clickStartButton = () => {
+    iniciaPartida(tablero);
 
-
+}
+//función para el click del START
 export const handlerClickButton = () => {
     const startButton = document.getElementById("button");
     if (startButton && startButton instanceof HTMLButtonElement) {
@@ -52,8 +57,5 @@ export const handlerClickButton = () => {
         })
     }
 };
-const clickStartButton = () => {
-    iniciaPartida(tablero);
 
-}
 
