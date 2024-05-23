@@ -66,11 +66,17 @@ const parejaEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): v
     tablero.cartas[indiceA].estaVuelta = true;
     tablero.cartas[indiceB].estaVuelta = true;
     tablero.estadoPartida = "DosCartasLevantadas";
+  }
+    else {
+      tablero.cartas[indiceA].encontrada = false;
+    tablero.cartas[indiceB].encontrada = false;
+    tablero.cartas[indiceA].estaVuelta = false;
+    tablero.cartas[indiceB].estaVuelta = false;
+    tablero.estadoPartida = "CeroCartasLevantadas";
+    }
     tablero.cartas[indiceA].encontrada = undefined
     
-    estado  a 2 cartas levantadas
-    estado a 0 cartas levantadas
-    //else pasar a false esta vuelta y encontrada  === false
+   
 
 
     const juegoCompleto = cartas.every((carta) => carta.encontrada);
