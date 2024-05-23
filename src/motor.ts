@@ -44,11 +44,10 @@ const voltearLaCarta = (tablero: Tablero, indice: number): void => {
   Dos cartas son pareja si en el array de tablero de cada una tienen el mismo id
 */
 export const sonPareja = (indiceA: number, indiceB: number, tablero: Tablero): boolean => {
-  // Get the ids of the cards at the specified indices
+  
   const idA = cartas[indiceA].idFoto;
   const idB = cartas[indiceB].idFoto;
 
-  // Check if the ids are the same
   return idA === idB;
 }
 
@@ -56,15 +55,14 @@ export const sonPareja = (indiceA: number, indiceB: number, tablero: Tablero): b
   Aquí asumimos ya que son pareja, lo que hacemos es marcarlas como encontradas y comprobar si la partida esta completa.
 */
 const parejaEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): void => {
-  // Mark the two cards as found
+  
   cartas[indiceA].encontrada = true;
   cartas[indiceB].encontrada = true;
 
-  // Check if all cards are found to determine if the game is complete
   const juegoCompleto = cartas.every((carta) => carta.encontrada);
 
   if (juegoCompleto) {
-    ;
+    alert("YOU WIN!!!")
   }
 }
 
@@ -72,7 +70,7 @@ const parejaEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): v
   Aquí asumimos que no son pareja y las volvemos a poner boca abajo
 */
 const parejaNoEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): void => {
-  // Flip the two cards back face down
+  
   cartas[indiceA].estaVuelta = false;
   cartas[indiceB].estaVuelta = false;
 }
@@ -81,7 +79,7 @@ const parejaNoEncontrada = (tablero: Tablero, indiceA: number, indiceB: number):
   Esto lo podemos comprobar o bien utilizando every, o bien utilizando un contador (cartasEncontradas)
 */
 export const esPartidaCompleta = (tablero: Tablero): boolean => {
-  // Check if every card on the board is found
+  
   return cartas.every((carta) => carta.encontrada);
 }
 
@@ -98,5 +96,5 @@ export const iniciaPartida = (tablero: Tablero): void => {
   barajarCartas(cartas)
 
 
-  // Any other necessary setup for starting a new game
+  
 };
