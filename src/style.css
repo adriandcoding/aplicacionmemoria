@@ -10,7 +10,6 @@ body {
   justify-content: center;
 }
 
-
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -19,17 +18,19 @@ body {
 }
 
 #imageContainer {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   cursor: pointer;
   width: 150px;
   height: 150px;
-  border-radius: 25px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
   background-color: rgb(101, 202, 245);
-
 }
 
 .start {

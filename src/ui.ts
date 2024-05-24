@@ -64,7 +64,8 @@ const darleLaVueltaALaCarta = (indexCard: number) => {
   if (imgElement && imgElement instanceof HTMLImageElement) {
     imgElement.src = "";
     imgElement.style.backgroundColor = "rgb(101, 202, 245)";
-    imgElement.style.borderRadius = "25px";
+    imgElement.style.borderRadius = "15px";
+    
   }
 };
 //funcion para cuando haces click en los divs empieze a voltear cartas
@@ -86,7 +87,7 @@ export const crearTablero = () => {
   });
 };
 //inicia partida con el array de cartas ya barajado
-const clickStartButton = () => {
+export const clickStartButton = () => {
   iniciaPartida(tablero);
 };
 //función para el click del START
