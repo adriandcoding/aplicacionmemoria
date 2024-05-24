@@ -31,6 +31,7 @@ const handlerDivCar = (indexCard: number) => {
     }
   }
 };
+//comprobar si son pareja las cartas
 const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
   const indiceCartaA = tablero.indiceCartaVolteadaA;
   const indiceCartaB = tablero.indiceCartaVolteadaB;
@@ -44,17 +45,20 @@ const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
   }
   
 };
+//voltear las cartas que no son pareja
 const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
   setTimeout(() => {
     ponerImagenBocaAbajo(cartas);
   }, 1000);
 };
+//funcion para poner cartas boca abajo
 const ponerImagenBocaAbajo = (cartas: Carta[]) => {
   cartas.forEach((_, indice) => {
     if (!cartas[indice].encontrada && !cartas[indice].encontrada)
       darleLaVueltaALaCarta(indice);
   });
 };
+//funcion para dar vuelta a una carta
 const darleLaVueltaALaCarta = (indexCard: number) => {
   const dataIndiceId = `[data-indice-id="${indexCard}"]`;
   const imgElement = document.querySelector(`img${dataIndiceId}`);
@@ -64,6 +68,7 @@ const darleLaVueltaALaCarta = (indexCard: number) => {
     imgElement.style.borderRadius = "15px";
   }
 };
+
 //funcion para cuando haces click en los divs empieze a voltear cartas
 const changeImage = (indexCard: number) => {
   const dataIndiceId = `[data-indice-id="${indexCard}"]`;
@@ -85,12 +90,16 @@ export const crearTablero = () => {
 export const clickStartButton = () => {
   iniciaPartida(tablero);
 };
+
+
 //función para el click del START
 export const handlerClickButton = () => {
   const startButton = document.getElementById("button");
   if (startButton && startButton instanceof HTMLButtonElement) {
     startButton.addEventListener("click", () => {
+      
       clickStartButton();
+      
     });
   }
 };
