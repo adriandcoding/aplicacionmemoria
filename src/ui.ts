@@ -12,7 +12,7 @@ const mostrarImagenAnimal = (indexCard: number) => {
   const dataIndiceId = `[data-indice-id="${indexCard}"]`;
   const imgElement = document.querySelector(`img${dataIndiceId}`);
   if (imgElement && imgElement instanceof HTMLImageElement) {
-    imgElement.style.backgroundColor="rgb(101, 202, 245)"
+    imgElement.style.backgroundColor = "rgb(101, 202, 245)";
     const urlImagen = tablero.cartas[indexCard].imagen;
     imgElement.src = urlImagen;
   }
@@ -43,7 +43,6 @@ const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
       voltearLasCartasQueNoSonPareja(tablero.cartas);
     }
   }
-  
 };
 //voltear las cartas que no son pareja
 const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
@@ -58,6 +57,7 @@ const ponerImagenBocaAbajo = (cartas: Carta[]) => {
       darleLaVueltaALaCarta(indice);
   });
 };
+
 //funcion para dar vuelta a una carta
 const darleLaVueltaALaCarta = (indexCard: number) => {
   const dataIndiceId = `[data-indice-id="${indexCard}"]`;
@@ -89,17 +89,14 @@ export const crearTablero = () => {
 //inicia partida con el array de cartas ya barajado
 export const clickStartButton = () => {
   iniciaPartida(tablero);
-};
-
+}
 
 //función para el click del START
 export const handlerClickButton = () => {
   const startButton = document.getElementById("button");
   if (startButton && startButton instanceof HTMLButtonElement) {
     startButton.addEventListener("click", () => {
-      
       clickStartButton();
-      
     });
   }
 };
