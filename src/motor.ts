@@ -1,6 +1,6 @@
 
 
-import { Carta, Tablero, cartas,} from "./model"
+import { Carta, Tablero,} from "./model"
 
 /*
 En el motor nos va a hacer falta un método para barajar cartas
@@ -56,47 +56,39 @@ export const sonPareja = (indiceA: number, indiceB: number, tablero: Tablero): b
 /*
   Aquí asumimos ya que son pareja, lo que hacemos es marcarlas como encontradas y comprobar si la partida esta completa.
 */
-const parejaEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): void => {
+export const parejaEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): void => {
   //desde ui, comprobar que no son undefined, luego invocamos a son pareja y le pasamos los indices
-  if (sonPareja(indiceA, indiceB, tablero)) {
-    tablero.cartas[indiceA].encontrada = true;
-    tablero.cartas[indiceB].encontrada = true;
-    tablero.cartas[indiceA].estaVuelta = true;
-    tablero.cartas[indiceB].estaVuelta = true;
-    tablero.estadoPartida = "DosCartasLevantadas";
-    if (esPartidaCompleta(tablero)) {
-      console.log("has ganado")
-    }
-  }
+
+  tablero.cartas[indiceA].encontrada = true;
+  tablero.cartas[indiceB].encontrada = true;
+  tablero.cartas[indiceA].estaVuelta = true;
+  tablero.cartas[indiceB].estaVuelta = true;
+  tablero.estadoPartida = "CeroCartasLevantadas";
+  tablero.indiceCartaVolteadaA = undefined;
+  tablero.indiceCartaVolteadaB = undefined;
 }
+
 /*
   Aquí asumimos que no son pareja y las volvemos a poner boca abajo
 */
-const parejaNoEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): void => {
-    if (!sonPareja(indiceA,indiceB,tablero)) {
-      tablero.cartas[indiceA].encontrada = false;
-      tablero.cartas[indiceB].encontrada = false;
-      tablero.cartas[indiceA].estaVuelta = false;
-      tablero.cartas[indiceB].estaVuelta = false;
-      tablero.estadoPartida = "CeroCartasLevantadas";
-    }
-}
-// Verificar si los índices son válidos y no son undefined
-export const manejarSeleccionCartas = (tablero: Tablero, indiceA: number, indiceB: number): void => {
-  if (indiceA !== undefined && indiceB && undefined) {
-    parejaEncontrada(tablero, indiceA, indiceB);
-    parejaNoEncontrada(tablero, indiceA, indiceB);
-    
-  }
+export const parejaNoEncontrada = (tablero: Tablero, indiceA: number, indiceB: number): void => {
 
-  
+  tablero.cartas[indiceA].encontrada = false;
+  tablero.cartas[indiceB].encontrada = false;
+  tablero.cartas[indiceA].estaVuelta = false;
+  tablero.cartas[indiceB].estaVuelta = false;
+  tablero.estadoPartida = "CeroCartasLevantadas";
+  tablero.indiceCartaVolteadaA = undefined;
+  tablero.indiceCartaVolteadaB = undefined;
 }
+
 
 /*
   Esto lo podemos comprobar o bien utilizando every, o bien utilizando un contador (cartasEncontradas)
 */
 export const esPartidaCompleta = (tablero: Tablero): boolean => {
   return tablero.cartas.every((carta) => carta.encontrada);
+  tablero.estadoPartida = "PartidaCompleta"
 }
 
 /*
