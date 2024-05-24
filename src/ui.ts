@@ -12,9 +12,8 @@ const mostrarImagenAnimal = (indexCard: number) => {
   const dataIndiceId = `[data-indice-id="${indexCard}"]`;
   const imgElement = document.querySelector(`img${dataIndiceId}`);
   if (imgElement && imgElement instanceof HTMLImageElement) {
+    imgElement.style.backgroundColor="rgb(101, 202, 245)"
     const urlImagen = tablero.cartas[indexCard].imagen;
-    imgElement.width = 150;
-    imgElement.height = 150;
     imgElement.src = urlImagen;
   }
 };
@@ -32,7 +31,6 @@ const handlerDivCar = (indexCard: number) => {
     }
   }
 };
-
 const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
   const indiceCartaA = tablero.indiceCartaVolteadaA;
   const indiceCartaB = tablero.indiceCartaVolteadaB;
@@ -44,7 +42,7 @@ const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
       voltearLasCartasQueNoSonPareja(tablero.cartas);
     }
   }
-  console.log(tablero);
+  
 };
 const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
   setTimeout(() => {
@@ -52,8 +50,7 @@ const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
   }, 1000);
 };
 const ponerImagenBocaAbajo = (cartas: Carta[]) => {
-  cartas.forEach((carta, indice) => {
-    console.log(carta.imagen);
+  cartas.forEach((_, indice) => {
     if (!cartas[indice].encontrada && !cartas[indice].encontrada)
       darleLaVueltaALaCarta(indice);
   });
@@ -65,7 +62,6 @@ const darleLaVueltaALaCarta = (indexCard: number) => {
     imgElement.src = "";
     imgElement.style.backgroundColor = "rgb(101, 202, 245)";
     imgElement.style.borderRadius = "15px";
-    
   }
 };
 //funcion para cuando haces click en los divs empieze a voltear cartas
@@ -81,8 +77,7 @@ const changeImage = (indexCard: number) => {
 
 // da funcionalidad en los divs al iniciar partida
 export const crearTablero = () => {
-  tablero.cartas.forEach((carta, indexCard) => {
-    console.log(carta.imagen);
+  tablero.cartas.forEach((_, indexCard) => {
     changeImage(indexCard);
   });
 };
