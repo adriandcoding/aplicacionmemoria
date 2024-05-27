@@ -1,6 +1,7 @@
-import { crearTablero,clickStartButton } from "./ui";
+import { crearTablero,clickStartButton, handlerClickButton } from "./ui";
 
 document.addEventListener("DOMContentLoaded", () => {
     crearTablero();
     clickStartButton()
+    handlerClickButton();
 });

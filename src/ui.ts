@@ -1,4 +1,4 @@
-import { Tablero, tablero, Carta } from "./model";
+import { Tablero, tablero, Carta, } from "./model";
 import {
   esVolteableLaCarta,
   iniciaPartida,
@@ -81,6 +81,7 @@ const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
   }, 1000);
 };
 
+
 // da funcionalidad en los divs al iniciar partida
 export const crearTablero = () => {
   tablero.cartas.forEach((_, indexCard) => {
@@ -98,6 +99,8 @@ export const handlerClickButton = () => {
   if (startButton && startButton instanceof HTMLButtonElement) {
     startButton.addEventListener("click", () => {
       clickStartButton();
+      
+      
     });
   }
 };
