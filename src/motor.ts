@@ -113,5 +113,3 @@ export const iniciaPartida = (tablero: Tablero): void => {
   tablero.cartas = [...cartaBarajada];
   tablero.estadoPartida = "CeroCartasLevantadas";
 };
-
-/* una vez dada vueltas a dos cartas comprobar si son pareja,*/

@@ -31,6 +31,35 @@ const handlerDivCar = (indexCard: number) => {
     }
   }
 };
+
+//funcion para dar vuelta a una carta
+const darleLaVueltaALaCarta = (indexCard: number) => {
+  const dataIndiceId = `[data-indice-id="${indexCard}"]`;
+  const imgElement = document.querySelector(`img${dataIndiceId}`);
+  if (imgElement && imgElement instanceof HTMLImageElement) {
+    imgElement.src = "";
+    imgElement.style.backgroundColor = "rgb(101, 202, 245)";
+    imgElement.style.borderRadius = "15px";
+  }
+};
+//funcion para cuando haces click en los divs empieze a voltear cartas
+const changeImage = (indexCard: number) => {
+  const dataIndiceId = `[data-indice-id="${indexCard}"]`;
+  const imgContainer = document.querySelector(`div${dataIndiceId}`);
+  if (imgContainer && imgContainer instanceof HTMLDivElement) {
+    imgContainer.addEventListener("click", () => {
+      handlerDivCar(indexCard);
+    });
+  }
+};
+//funcion para poner cartas boca abajo
+const ponerImagenBocaAbajo = (cartas: Carta[]) => {
+  cartas.forEach((_, indice) => {
+    if (!cartas[indice].encontrada && !cartas[indice].encontrada)
+      darleLaVueltaALaCarta(indice);
+  });
+};
+
 //comprobar si son pareja las cartas
 const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
   const indiceCartaA = tablero.indiceCartaVolteadaA;
@@ -44,40 +73,12 @@ const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
     }
   }
 };
+
 //voltear las cartas que no son pareja
 const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
   setTimeout(() => {
     ponerImagenBocaAbajo(cartas);
   }, 1000);
-};
-//funcion para poner cartas boca abajo
-const ponerImagenBocaAbajo = (cartas: Carta[]) => {
-  cartas.forEach((_, indice) => {
-    if (!cartas[indice].encontrada && !cartas[indice].encontrada)
-      darleLaVueltaALaCarta(indice);
-  });
-};
-
-//funcion para dar vuelta a una carta
-const darleLaVueltaALaCarta = (indexCard: number) => {
-  const dataIndiceId = `[data-indice-id="${indexCard}"]`;
-  const imgElement = document.querySelector(`img${dataIndiceId}`);
-  if (imgElement && imgElement instanceof HTMLImageElement) {
-    imgElement.src = "";
-    imgElement.style.backgroundColor = "rgb(101, 202, 245)";
-    imgElement.style.borderRadius = "15px";
-  }
-};
-
-//funcion para cuando haces click en los divs empieze a voltear cartas
-const changeImage = (indexCard: number) => {
-  const dataIndiceId = `[data-indice-id="${indexCard}"]`;
-  const imgContainer = document.querySelector(`div${dataIndiceId}`);
-  if (imgContainer && imgContainer instanceof HTMLDivElement) {
-    imgContainer.addEventListener("click", () => {
-      handlerDivCar(indexCard);
-    });
-  }
 };
 
 // da funcionalidad en los divs al iniciar partida
@@ -89,7 +90,7 @@ export const crearTablero = () => {
 //inicia partida con el array de cartas ya barajado
 export const clickStartButton = () => {
   iniciaPartida(tablero);
-}
+};
 
 //función para el click del START
 export const handlerClickButton = () => {
