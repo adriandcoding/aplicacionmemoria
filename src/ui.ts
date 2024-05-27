@@ -98,6 +98,9 @@ export const handlerClickButton = () => {
   const startButton = document.getElementById("button");
   if (startButton && startButton instanceof HTMLButtonElement) {
     startButton.addEventListener("click", () => {
+      ponerImagenBocaAbajo(
+        tablero.cartas
+      )
       clickStartButton();
       
       
