@@ -104,7 +104,6 @@ export const esPartidaCompleta = (tablero: Tablero): boolean => {
   tablero.estadoPartida = "PartidaCompleta";
 };
 
-
 export const resetearTablero = (tablero: Tablero) => {
   tablero.cartas = [
     ...tablero.cartas.map((carta) => {
@@ -112,13 +111,13 @@ export const resetearTablero = (tablero: Tablero) => {
         ...carta,
         estaVuelta: false,
         encontrada: false,
-      }
-    })
-  ]
+      };
+    }),
+  ];
   tablero.indiceCartaVolteadaA = undefined;
   tablero.indiceCartaVolteadaB = undefined;
-  tablero.estadoPartida = "CeroCartasLevantadas"
-}
+  tablero.estadoPartida = "CeroCartasLevantadas";
+};
 /*
 Iniciar partida
 */

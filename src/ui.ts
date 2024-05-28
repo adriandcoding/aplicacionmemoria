@@ -1,4 +1,4 @@
-import { Tablero, tablero, Carta,} from "./model";
+import { Tablero, tablero, Carta } from "./model";
 import {
   esVolteableLaCarta,
   iniciaPartida,
@@ -102,10 +102,9 @@ export const handlerClickButton = () => {
   const startButton = document.getElementById("button");
   if (startButton && startButton instanceof HTMLButtonElement) {
     startButton.addEventListener("click", () => {
-      resetearTablero(tablero)
+      resetearTablero(tablero);
       paraAbajo(tablero.cartas);
       clickStartButton();
-      
     });
   }
 };
