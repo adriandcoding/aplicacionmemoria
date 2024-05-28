@@ -1,4 +1,4 @@
-import { Tablero, tablero, Carta, } from "./model";
+import { Tablero, tablero, Carta,} from "./model";
 import {
   esVolteableLaCarta,
   iniciaPartida,
@@ -6,6 +6,7 @@ import {
   sonPareja,
   parejaEncontrada,
   parejaNoEncontrada,
+  resetearTablero,
 } from "./motor";
 //función para cambiar el valor del div y pasarle un src
 const mostrarImagenAnimal = (indexCard: number) => {
@@ -59,7 +60,11 @@ const ponerImagenBocaAbajo = (cartas: Carta[]) => {
       darleLaVueltaALaCarta(indice);
   });
 };
-
+const paraAbajo = (cartas: Carta[]) => {
+  cartas.forEach((_, indice) => {
+    darleLaVueltaALaCarta(indice);
+  });
+};
 //comprobar si son pareja las cartas
 const mirarSiEsLaSegundaCarta = (tablero: Tablero) => {
   const indiceCartaA = tablero.indiceCartaVolteadaA;
@@ -81,7 +86,6 @@ const voltearLasCartasQueNoSonPareja = (cartas: Carta[]) => {
   }, 1000);
 };
 
-
 // da funcionalidad en los divs al iniciar partida
 export const crearTablero = () => {
   tablero.cartas.forEach((_, indexCard) => {
@@ -98,11 +102,9 @@ export const handlerClickButton = () => {
   const startButton = document.getElementById("button");
   if (startButton && startButton instanceof HTMLButtonElement) {
     startButton.addEventListener("click", () => {
-      ponerImagenBocaAbajo(
-        tablero.cartas
-      )
+      resetearTablero(tablero)
+      paraAbajo(tablero.cartas);
       clickStartButton();
-      
       
     });
   }
