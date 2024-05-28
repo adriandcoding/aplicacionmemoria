@@ -104,9 +104,7 @@ export const esPartidaCompleta = (tablero: Tablero): boolean => {
   tablero.estadoPartida = "PartidaCompleta";
 };
 
-/*
-Iniciar partida
-*/
+
 export const resetearTablero = (tablero: Tablero) => {
   tablero.cartas = [
     ...tablero.cartas.map((carta) => {
@@ -121,7 +119,9 @@ export const resetearTablero = (tablero: Tablero) => {
   tablero.indiceCartaVolteadaB = undefined;
   tablero.estadoPartida = "CeroCartasLevantadas"
 }
-
+/*
+Iniciar partida
+*/
 export const iniciaPartida = (tablero: Tablero): void => {
   const cartaBarajada = barajarCartas(tablero.cartas);
   tablero.cartas = [...cartaBarajada];
