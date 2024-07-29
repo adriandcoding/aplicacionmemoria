@@ -1,3 +1,6 @@
+markdown
+Copiar código
+
 # 🎴 Juego de Memoria de Cartas
 
 ¡Bienvenido al proyecto del juego de memoria de cartas! Sigue estos pasos para ejecutarlo en tu entorno local.
