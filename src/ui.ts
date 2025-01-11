@@ -43,7 +43,7 @@ const darleLaVueltaALaCarta = (indexCard: number) => {
     imgElement.style.borderRadius = "15px";
   }
 };
-//funcion para cuando haces click en los divs empieze a voltear cartas
+//funcion para cuando haces click en los divs empiece a voltear cartas
 const changeImage = (indexCard: number) => {
   const dataIndiceId = `[data-indice-id="${indexCard}"]`;
   const imgContainer = document.querySelector(`div${dataIndiceId}`);
